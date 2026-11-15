@@ -1,9 +1,16 @@
 // Анкета гостя: собирает ответы в текст и отдаёт его в мессенджер или в буфер обмена.
-// Сервера у сайта нет, поэтому ответы уходят сообщением на номер из RECIPIENT.
+// Сервера у сайта нет, поэтому ответы уходят сообщением тому, кого гость выбрал в PEOPLE.
 (function () {
   'use strict';
 
-  var RECIPIENT = { whatsapp: '79777681520', telegram: '+79777681520' };
+  // Номера без плюса, в международном формате.
+  var PEOPLE = { alexey: '79777681520', vera: '79250716288' };
+
+  function messengerUrl(channel, person, text) {
+    var phone = PEOPLE[person] || PEOPLE.alexey;
+    var base = channel === 'telegram' ? 'https://t.me/+' + phone : 'https://wa.me/' + phone;
+    return base + '?text=' + encodeURIComponent(text);
+  }
 
   var form = document.getElementById('rsvp');
   var status = document.getElementById('rsvp-status');
@@ -121,10 +128,7 @@
       return;
     }
 
-    var url = via === 'telegram'
-      ? 'https://t.me/' + RECIPIENT.telegram + '?text=' + encodeURIComponent(text)
-      : 'https://wa.me/' + RECIPIENT.whatsapp + '?text=' + encodeURIComponent(text);
-    openMessenger(url);
+    openMessenger(messengerUrl(via, value('to'), text));
     status.textContent = 'Открываем мессенджер. Осталось нажать «Отправить» в чате. Если чат не открылся, нажмите «Скопировать ответы».';
   });
 })();
