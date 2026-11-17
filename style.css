@@ -23,10 +23,10 @@
 :root {
   /* Одна единица макета: макет нарисован на ширину 402, страница тянется до 430. */
   --u: calc(100vw / 402);
-  --wine: #6b3238;
-  --wine-deep: #6b2a32;
-  --paper: #fdfdf8;
-  --ink: #1c1516;
+  --wine: #722f37;
+  --wine-deep: #722f37;
+  --paper: #fefff9;
+  --ink: #000;
   --script: "Great Vibes", "Snell Roundhand", "Segoe Script", cursive;
   --sans: "Open Sans", "Segoe UI", Roboto, Arial, sans-serif;
 }
@@ -48,97 +48,54 @@ fieldset { border: 0; min-width: 0; }
   background: var(--paper); box-shadow: 0 0 40px rgb(60 20 25 / .18);
 }
 
-/* Обложка */
-/* Шапка с надписью вырезана из макета картинкой, иллюстрация начинается под ней. */
-.hero { position: relative; background: #fae8d5; padding-top: calc(var(--u) * 110.76); }
-.hero__top { position: absolute; inset: 0 0 auto 0; z-index: 1; }
-.hero__cover {
-  width: 100%;
-  -webkit-mask-image: linear-gradient(#000 84%, transparent 99%);
-  mask-image: linear-gradient(#000 84%, transparent 99%);
-}
-.hero__art { width: 100%; }
+/* Куски макета, перенесённые картинками: обложка, программа дня, полосы с заголовками, кружево. */
+.slice { display: block; width: 100%; height: auto; }
+.slice--band { width: calc(100% + var(--u) * 32); max-width: none; margin: 0 calc(var(--u) * -16); }
 
-/* Общие блоки */
-.block { padding: calc(var(--u) * 26) calc(var(--u) * 16) calc(var(--u) * 30); position: relative; }
+/* Общие блоки. Отступы, размеры и сдвиги сняты с макета Figma, единица — пиксель макета. */
+.block { padding: 0 calc(var(--u) * 16); position: relative; }
 .block--light { background: var(--paper); }
-.block--dark { background: var(--wine); color: #fff; }
-.block--tight { padding-top: calc(var(--u) * 6); padding-bottom: calc(var(--u) * 26); }
-/* Кружевной узор под заголовком, как в макете. */
-.block--lace { padding-top: calc(var(--u) * 18); padding-bottom: calc(var(--u) * 8); }
-.block--lace::before {
-  content: ""; position: absolute; inset: 0 0 auto 0; height: calc(var(--u) * 70);
-  background: url(img/lace.png) center / calc(var(--u) * 560) auto repeat-x;
-  mix-blend-mode: multiply; opacity: .55;
-}
-.block--lace .heading { margin-bottom: calc(var(--u) * 16); }
-.block--lace.block--join { padding-bottom: calc(var(--u) * 30); }
-.block--lace > * { position: relative; }
+.block--dark { background: var(--wine); color: #f8f3e9; }
 
-.heading {
-  font: italic 400 calc(var(--u) * 36) / 1.25 var(--sans); text-align: center; color: #fff;
-  text-shadow: 0 calc(var(--u) * 3) calc(var(--u) * 4) rgb(30 5 8 / .55);
-  margin-bottom: calc(var(--u) * 14);
-}
-.heading--dark { color: var(--wine-deep); text-shadow: 0 calc(var(--u) * 3) calc(var(--u) * 4) rgb(60 15 20 / .4); }
-.heading--small { font-size: calc(var(--u) * 24); color: var(--wine-deep); text-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 3) rgb(60 15 20 / .35); }
-.heading--band {
-  background: var(--wine); margin: 0; padding: calc(var(--u) * 7.5) 0;
-  white-space: nowrap;
-}
+/* Строки текста разбиты как в макете и не переносятся: шрифт 20, шаг строк 25, поле слева 3. */
+.script { font-family: var(--script); font-size: calc(var(--u) * 20); line-height: calc(var(--u) * 25); }
+.script .ln { display: block; white-space: nowrap; }
+.script .ln:first-child { padding-left: calc(var(--u) * var(--i, 0)); }
+.block > .script { margin-inline: calc(var(--u) * -13); }
+.script--plain { font-size: calc(var(--u) * 20.8); }
+.script--center { text-align: center; }
 
-.script {
-  font-family: var(--script); font-size: calc(var(--u) * 19.6); line-height: 1.27;
-  text-indent: calc(var(--u) * 13);
-}
-/* В макете текст идёт почти от края до края, а фотографии и анкета стоят с полями. */
-.block > .script { margin-inline: calc(var(--u) * -12); }
-.script--plain { text-indent: 0; }
-.script--deep { text-indent: calc(var(--u) * 21); }
-.script--center { text-indent: 0; text-align: center; }
-
-/* Программа дня */
-.program { background: var(--paper); }
-.program__body { position: relative; padding: calc(var(--u) * 6) 0 calc(var(--u) * 34); }
-.program__ribbon { position: absolute; inset: 0; width: 100%; height: 100%; }
-.program__date { position: relative; }
-.program__date time {
-  display: flex; justify-content: space-between; padding: 0 calc(var(--u) * 17);
-  font: italic 700 calc(var(--u) * 64) / 1.2 var(--sans); color: var(--wine-deep);
-  text-shadow: 0 calc(var(--u) * 4) calc(var(--u) * 5) rgb(60 15 20 / .45);
-}
-.program__list { position: relative; margin-top: calc(var(--u) * 46); display: grid; row-gap: calc(var(--u) * 46); }
-.program__row { display: grid; grid-template-columns: 1fr 1fr; align-items: center; min-height: calc(var(--u) * 78); }
-.program__icon { mix-blend-mode: multiply; width: calc(var(--u) * 78); justify-self: center; margin-right: calc(var(--u) * 48); }
-.program__row--reverse .program__icon { grid-column: 2; grid-row: 1; margin: 0 0 0 calc(var(--u) * 58); }
-.program__row--reverse .program__event { grid-column: 1; grid-row: 1; }
-.program__event { text-align: center; font-family: var(--script); }
-.program__event time { display: block; font-size: calc(var(--u) * 32); line-height: 1.1; color: var(--wine-deep); }
-.program__event span { display: block; font-size: calc(var(--u) * 19); line-height: 1.25; }
+/* Приветствие */
+.block--intro { padding-bottom: calc(var(--u) * 16.75); }
+.block--intro > .script { margin-top: calc(var(--u) * 4.25); }
 
 /* ЗАГС и ресторан */
-.place { display: grid; grid-template-columns: 184fr 167fr; column-gap: calc(var(--u) * 18); margin-top: calc(var(--u) * 17); }
-.block--join .place { margin-top: calc(var(--u) * 26); }
+.block--place { padding-bottom: calc(var(--u) * 8.65); }
+.block--place > .script { margin-top: calc(var(--u) * 9.3); }
+.place { display: grid; grid-template-columns: calc(var(--u) * 184.3) calc(var(--u) * 167.3); column-gap: calc(var(--u) * 17.7); align-items: start; margin: calc(var(--u) * 15.45) 0 0 calc(var(--u) * 1); height: calc(var(--u) * 228.6); }
 .place img { width: 100%; object-fit: cover; box-shadow: 0 calc(var(--u) * 3) calc(var(--u) * 8) rgb(20 0 5 / .45); }
-.place__main { aspect-ratio: 184 / 230; height: 100%; }
-.place__side img { aspect-ratio: 167 / 118; margin-bottom: calc(var(--u) * 16); }
-
-/* Кружевная кайма между блоками */
-.lace { height: calc(var(--u) * 58); background: url(img/lace.png) center / auto 100% repeat-x; position: relative; z-index: 1; }
-.lace--down { margin-bottom: calc(var(--u) * -34); margin-top: calc(var(--u) * -4); filter: drop-shadow(0 2px 3px rgb(60 15 20 / .35)); }
-.lace--up { transform: scaleY(-1); margin-top: calc(var(--u) * -30); margin-bottom: calc(var(--u) * -6); }
-.lace--down + .block { padding-top: calc(var(--u) * 46); }
-.lace--up + .block { padding-top: calc(var(--u) * 14); }
+.place__main { height: calc(var(--u) * 228.6); }
+.place__side { min-width: 0; }
+.place__side img { height: calc(var(--u) * 119.5); margin-bottom: calc(var(--u) * 16.8); }
+.block--place-next { padding-bottom: calc(var(--u) * 6.6); }
+.block--place-next > .script { margin-top: calc(var(--u) * 7.25); }
+.block--place-next .place { margin-top: calc(var(--u) * 28.8); height: calc(var(--u) * 235.6); }
+.block--place-next .place__main { height: calc(var(--u) * 235.6); }
+.block--place-next .place__side img { height: calc(var(--u) * 119.7); margin-bottom: calc(var(--u) * 16.5); }
+.block--place-next .script--plain { font-size: calc(var(--u) * 20); }
 
 /* Дресс-код */
-.palette { display: flex; justify-content: center; gap: calc(var(--u) * 8); margin-top: calc(var(--u) * 18); padding-bottom: calc(var(--u) * 26); }
-.palette li {
-  width: calc(var(--u) * 32); height: calc(var(--u) * 32); border-radius: 50%; background: var(--c);
-  box-shadow: 0 calc(var(--u) * 3) calc(var(--u) * 5) rgb(40 20 20 / .35);
-}
+.block--dress > .script { margin-top: calc(var(--u) * 6.75); }
+.block--dress > .script + .slice { margin-top: calc(var(--u) * 9.25); }
+
+/* Пожелания */
+.block--wishes { padding-bottom: calc(var(--u) * 31.55); }
+.block--wishes > .slice + .script { margin-top: calc(var(--u) * 4.75); }
 
 /* Анкета */
-.form { margin-top: calc(var(--u) * 14); display: grid; row-gap: calc(var(--u) * 20); }
+.block--form { padding-bottom: calc(var(--u) * 30); }
+.block--form > .slice + .script { margin-top: calc(var(--u) * 7.5); }
+.form { margin-top: calc(var(--u) * 12.25); display: grid; row-gap: calc(var(--u) * 20); }
 .field { display: block; }
 .field__label { display: block; font-family: var(--script); font-size: calc(var(--u) * 20); line-height: 1.3; }
 .field input[type="text"], .field textarea {
@@ -163,13 +120,14 @@ fieldset { border: 0; min-width: 0; }
 .form__status { min-height: 1.4em; text-align: center; font: italic 400 14px / 1.4 var(--sans); color: var(--wine-deep); }
 
 /* Контакты */
-.contacts { padding-bottom: calc(var(--u) * 50); }
-.contacts .heading { margin-bottom: calc(var(--u) * 6); }
-.contacts__people { display: grid; grid-template-columns: 1fr 1fr; margin-top: calc(var(--u) * 16); text-align: center; }
-.contacts__person { color: #fff; text-decoration: none; font-family: var(--script); font-size: calc(var(--u) * 30); line-height: 1.35; }
-.contacts__person span { display: block; font-size: calc(var(--u) * 36); }
-.contacts__icons { display: flex; justify-content: center; gap: calc(var(--u) * 6); margin-top: calc(var(--u) * 14); }
-.contacts__icons li { width: 44px; height: 44px; display: grid; place-items: center; }
+.contacts { padding-bottom: calc(var(--u) * 44.9); }
+.contacts > .script { margin-top: calc(var(--u) * 4.45); }
+.contacts__people { display: grid; grid-template-columns: 1fr 1fr; margin-top: calc(var(--u) * 18.95); text-align: center; }
+.contacts__person { color: inherit; text-decoration: none; font-family: var(--script); font-size: calc(var(--u) * 36); line-height: calc(var(--u) * 42); }
+.contacts__person span { display: block; line-height: calc(var(--u) * 45); }
+.contacts__person:nth-child(2) { position: relative; left: calc(var(--u) * 8.9); }
+.contacts__icons { display: flex; justify-content: center; margin-top: calc(var(--u) * 11); position: relative; left: calc(var(--u) * -0.5); }
+.contacts__icons li { width: calc(var(--u) * 38); height: calc(var(--u) * 44); display: grid; place-items: center; }
 .contacts__icons a { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; }
 .contacts__icons a:focus-visible, .contacts__person:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-.contacts__icons img { width: calc(var(--u) * 27); }
+.contacts__icons img { width: calc(var(--u) * 25); }

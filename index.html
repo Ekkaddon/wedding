@@ -13,116 +13,120 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#6b3238">
 <link rel="preload" href="fonts/great-vibes-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="img/hero-top.jpg" as="image">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="preload" href="img/cover.jpg" as="image">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 <main class="page">
 
   <header class="hero">
-    <div class="hero__top">
-      <img class="hero__cover" src="img/hero-top.jpg" width="1880" height="656" alt="">
-      <p class="visually-hidden" lang="en">Wedding day</p>
-      <h1 class="visually-hidden">Алексей &amp; Вера</h1>
-    </div>
-    <img class="hero__art" src="img/hero.jpg" width="1024" height="1024"
-         alt="Алексей и Вера в книжном магазине">
+    <h1 class="visually-hidden">Wedding day. Алексей &amp; Вера</h1>
+    <img class="slice" src="img/cover.jpg" width="1608" height="2053" alt="Алексей и Вера в книжном магазине">
   </header>
 
-  <section class="block block--light">
-    <h2 class="heading heading--small">Дорогие наши родные и&nbsp;гости!</h2>
-    <p class="script">Помните, как в хорошей книге есть фраза, после которой хочется улыбаться
-      и читать дальше? Для нас такой стала: «А&nbsp;ты прикольная!». Всё началось в уютном
-      книжном, а теперь открываем новую главу&nbsp;— «Семейная жизнь». Станьте её
-      героями&nbsp;— пусть ваш смех и добрые слова станут частью нашей истории. Спасибо, что
-      с&nbsp;нами! До встречи на празднике!</p>
+  <section class="block block--light block--intro">
+    <h2 class="visually-hidden">Дорогие наши родные и гости!</h2>
+    <img class="slice slice--band" src="img/head-intro.jpg" width="1608" height="219" loading="lazy" alt="">
+    <p class="script" style="--i:13.7">
+      <span class="ln">Помните, как в хорошей книге есть фраза, после которой</span>
+      <span class="ln">хочется улыбаться и читать дальше? Для нас такой стала:</span>
+      <span class="ln">«А ты прикольная!». Всё началось в уютном книжном, а</span>
+      <span class="ln">теперь открываем новую главу — «Семейная жизнь».</span>
+      <span class="ln">Станьте её героями — пусть ваш смех и добрые слова станут</span>
+      <span class="ln">частью нашей истории. Спасибо, что с нами! До встречи на</span>
+      <span class="ln">празднике!</span>
+    </p>
   </section>
 
   <section class="program">
-    <h2 class="heading heading--band">Когда и как все будет?</h2>
-    <div class="program__body">
-      <svg class="program__ribbon" viewBox="0 0 402 503" preserveAspectRatio="none" aria-hidden="true">
-        <defs><filter id="soft" x="-20%" y="-5%" width="140%" height="110%"><feGaussianBlur stdDeviation="3"/></filter></defs>
-        <path d="M205 0 C205 60 262 70 255 120 C248 175 135 150 132 215 C130 270 240 250 250 320 C258 385 150 400 152 455 C153 480 170 490 176 503"
-              fill="none" stroke="#6b3238" stroke-opacity=".38" stroke-width="13" stroke-linecap="round" filter="url(#soft)"/>
-      </svg>
-      <p class="program__date"><time datetime="2027-02-27"><span>27.02</span><span>2027</span></time></p>
-      <ol class="program__list">
-        <li class="program__row">
-          <img src="img/camera.png" width="117" height="91" alt="" class="program__icon">
-          <p class="program__event"><time>16:00</time><span>сбор гостей</span></p>
-        </li>
-        <li class="program__row program__row--reverse">
-          <img src="img/rings.png" width="151" height="137" alt="" class="program__icon">
-          <p class="program__event"><time>16:30</time><span>церемония бракосочетания</span></p>
-        </li>
-        <li class="program__row">
-          <img src="img/plate.png" width="171" height="128" alt="" class="program__icon">
-          <p class="program__event"><time>17:30</time><span>торжественный ужин</span></p>
-        </li>
-      </ol>
-    </div>
+    <h2 class="visually-hidden">Когда и как все будет?</h2>
+    <img class="slice" src="img/program.jpg" width="1608" height="2255" loading="lazy"
+         alt="27 февраля 2027 года. 16:00 — сбор гостей. 16:30 — церемония бракосочетания. 17:30 — торжественный ужин.">
   </section>
 
-  <section class="block block--dark block--lace">
-    <h2 class="heading">ЗАГС</h2>
-    <p class="script">Если вы хотите приехать в ЗАГС и стать свидетелями этого прекрасного
-      момента&nbsp;— мы будем счастливы вас видеть.</p>
+  <section class="block block--dark block--place">
+    <h2 class="visually-hidden">ЗАГС</h2>
+    <img class="slice slice--band" src="img/band-zags.jpg" width="1608" height="285" loading="lazy" alt="">
+    <p class="script" style="--i:14.2">
+      <span class="ln">Если вы хотите приехать в ЗАГС и стать свидетелями</span>
+      <span class="ln">этого прекрасного момента — мы будем счастливы вас видеть.</span>
+    </p>
     <div class="place">
       <img class="place__main" src="img/zags-outside.jpg" width="800" height="533" alt="Здание ЗАГСа" loading="lazy">
       <div class="place__side">
         <img src="img/zags-hall.jpg" width="800" height="533" alt="Зал торжественной регистрации" loading="lazy">
-        <p class="script script--plain">Церемония состоится в ЗАГСе по адресу:<br>
-          г.&nbsp;Москва, Таганская ул.,&nbsp;44.</p>
+        <p class="script script--plain">
+      <span class="ln">Церемония состоится в</span>
+      <span class="ln">ЗАГСе по адресу:</span>
+      <span class="ln">г. Москва, Таганская</span>
+      <span class="ln">ул., 44.</span>
+    </p>
       </div>
     </div>
   </section>
 
-  <section class="block block--dark block--lace block--join">
-    <h2 class="heading">Ресторан</h2>
-    <p class="script">После церемонии состоится основное торжество, которое пройдёт
-      в ресторане “Времена года”, чтобы вместе наполнить день радостью, воспоминанием
-      и&nbsp;счастьем.</p>
+  <section class="block block--dark block--place block--place-next">
+    <h2 class="visually-hidden">Ресторан</h2>
+    <img class="slice slice--band" src="img/band-restaurant.jpg" width="1608" height="272" loading="lazy" alt="">
+    <p class="script" style="--i:13.5">
+      <span class="ln">После церемонии состоится основное торжество, которое</span>
+      <span class="ln">пройдёт в ресторане “Времена года”, чтобы вместе наполнить</span>
+      <span class="ln">день радостью, воспоминанием и счастьем.</span>
+    </p>
     <div class="place">
       <img class="place__main" src="img/restaurant-outside.jpg" width="800" height="533" alt="Ресторан «Времена года» вечером" loading="lazy">
       <div class="place__side">
         <img src="img/restaurant-hall.jpg" width="800" height="534" alt="Зал ресторана" loading="lazy">
-        <p class="script script--plain">Ресторан расположен по адресу:<br>
-          Москва, ул.&nbsp;Крымский Вал,&nbsp;9, стр.&nbsp;20</p>
+        <p class="script script--plain">
+      <span class="ln">Ресторан расположен по</span>
+      <span class="ln">адресу:</span>
+      <span class="ln">Москва, ул. Крымский</span>
+      <span class="ln">Вал, 9, стр. 20</span>
+    </p>
       </div>
     </div>
   </section>
 
-  <div class="lace lace--down" aria-hidden="true"></div>
+  <img class="slice" src="img/lace-1.jpg" width="1608" height="258" loading="lazy" alt="">
 
-  <section class="block block--light block--tight">
-    <h2 class="heading heading--dark">Дресс-код</h2>
-    <p class="script script--deep">Если получится поддержать нашу цветовую гамму&nbsp;— будем безумно
-      благодарны! Это поможет создать ту самую атмосферу, о которой мы мечтали. Но главное,
-      что вы будете рядом&nbsp;— это самое ценное!</p>
-    <ul class="palette" aria-label="Цвета дресс-кода">
-      <li style="--c:#f3efe9"><span class="visually-hidden">молочный</span></li>
-      <li style="--c:#d2cfc9"><span class="visually-hidden">светло-серый</span></li>
-      <li style="--c:#f3dfa0"><span class="visually-hidden">светло-жёлтый</span></li>
-      <li style="--c:#b9cbe6"><span class="visually-hidden">голубой</span></li>
-      <li style="--c:#6b2d35"><span class="visually-hidden">бордовый</span></li>
-      <li style="--c:#3f2b25"><span class="visually-hidden">тёмно-коричневый</span></li>
-    </ul>
+  <section class="block block--light block--dress">
+    <h2 class="visually-hidden">Дресс-код</h2>
+    <img class="slice slice--band" src="img/head-dress.jpg" width="1608" height="228" loading="lazy" alt="">
+    <p class="script" style="--i:23.8">
+      <span class="ln">Если получится поддержать нашу цветовую гамму —</span>
+      <span class="ln">будем безумно благодарны! Это поможет создать ту самую</span>
+      <span class="ln">атмосферу, о которой мы мечтали. Но главное, что вы</span>
+      <span class="ln">будете рядом — это самое ценное!</span>
+    </p>
+    <img class="slice slice--band" src="img/palette.jpg" width="1608" height="216" loading="lazy"
+         alt="Цвета дресс-кода: молочный, светло-серый, светло-жёлтый, голубой, бордовый, тёмно-коричневый">
   </section>
 
-  <div class="lace lace--up" aria-hidden="true"></div>
+  <img class="slice" src="img/lace-2.jpg" width="1608" height="248" loading="lazy" alt="">
 
-  <section class="block block--dark block--tight">
-    <h2 class="heading">Пожелания</h2>
-    <p class="script script--deep">Пожалуйста, не дарите цветы&nbsp;— в нашей квартире для них нет места.</p>
-    <p class="script">Не хотим, чтобы вы ломали голову, что бы подарить&nbsp;— будем рады
-      просто конвертику с&nbsp;денюжкой.</p>
+  <section class="block block--dark block--wishes">
+    <h2 class="visually-hidden">Пожелания</h2>
+    <img class="slice slice--band" src="img/head-wishes.jpg" width="1608" height="208" loading="lazy" alt="">
+    <p class="script" style="--i:20.3">
+      <span class="ln">Пожалуйста, не дарите цветы — в нашей квартире для</span>
+      <span class="ln">них нет места.</span>
+    </p>
+    <p class="script" style="--i:13">
+      <span class="ln">Не хотим, чтобы вы ломали голову, что бы подарить —</span>
+      <span class="ln">будем рады просто конвертику с денюжкой.</span>
+    </p>
   </section>
 
-  <section class="block block--light" id="anketa">
-    <h2 class="heading heading--dark">Анкета гостя</h2>
-    <p class="script">Чтобы сделать праздник удобным для каждого, просим заполнить небольшую анкету.</p>
-    <p class="script">В ней&nbsp;— пара вопросов про предпочтения и&nbsp;присутствие.</p>
+  <section class="block block--light block--form" id="anketa">
+    <h2 class="visually-hidden">Анкета гостя</h2>
+    <img class="slice slice--band" src="img/head-form.jpg" width="1608" height="214" loading="lazy" alt="">
+    <p class="script" style="--i:18">
+      <span class="ln">Чтобы сделать праздник удобным для каждого, просим</span>
+      <span class="ln">заполнить небольшую анкету.</span>
+    </p>
+    <p class="script" style="--i:18.3">
+      <span class="ln">В ней — пара вопросов про предпочтения и присутствие.</span>
+    </p>
 
     <form class="form" id="rsvp" novalidate>
       <label class="field">
@@ -164,7 +168,8 @@
   </section>
 
   <footer class="block block--dark contacts">
-    <h2 class="heading">Контакты</h2>
+    <h2 class="visually-hidden">Контакты</h2>
+    <img class="slice slice--band" src="img/head-contacts.jpg" width="1608" height="266" loading="lazy" alt="">
     <p class="script script--center">По всем возникающим вопросам можете писать нам:</p>
     <div class="contacts__people">
       <a class="contacts__person" href="tel:+79777681520"><span>Алексей</span>7&nbsp;977&nbsp;768&nbsp;15&nbsp;20</a>
