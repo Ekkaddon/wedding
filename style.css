@@ -10,6 +10,10 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212;
 }
 @font-face {
+  font-family: "Tangerine"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(fonts/tangerine-latin.woff2) format("woff2");
+}
+@font-face {
   font-family: "Open Sans"; font-style: italic; font-weight: 400 700; font-display: swap;
   src: url(fonts/open-sans-italic-cyrillic.woff2) format("woff2");
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
@@ -27,6 +31,7 @@
   --wine-deep: #6b2a32;
   --paper: #fdfdf8;
   --ink: #1c1516;
+  --title: "Tangerine", "Great Vibes", "Snell Roundhand", cursive;
   --script: "Great Vibes", "Snell Roundhand", "Segoe Script", cursive;
   --sans: "Open Sans", "Segoe UI", Roboto, Arial, sans-serif;
 }
@@ -49,18 +54,27 @@ fieldset { border: 0; min-width: 0; }
 }
 
 /* Обложка */
-.hero { position: relative; background: var(--wine); }
+.hero { position: relative; background: #fae8d5; }
 .hero__top {
-  position: relative; z-index: 1; text-align: center;
-  padding: calc(var(--u) * 8) 0 calc(var(--u) * 46);
-  margin-bottom: calc(var(--u) * -42);
-  background: linear-gradient(#6b3238 0%, #8c5257 45%, rgba(214, 178, 170, .85) 80%, rgba(240, 215, 200, 0) 100%);
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  height: calc(var(--u) * 130); padding-top: calc(var(--u) * 5.2);
+  margin-bottom: calc(var(--u) * -20);
+  background: linear-gradient(#70313b 0%, #fae8d5 calc(var(--u) * 114), rgba(250, 232, 213, 0) 100%);
+}
+/* Бледная дата за заголовком, как в макете. */
+.hero__date {
+  position: absolute; left: 0; right: 0; top: calc(var(--u) * 3.6);
+  font: italic 700 calc(var(--u) * 100) / 1 var(--sans); letter-spacing: calc(var(--u) * 33);
+  margin-right: calc(var(--u) * -46); white-space: nowrap;
+  color: rgb(255 255 255 / .09); filter: blur(calc(var(--u) * 2));
 }
 .hero__title {
-  font-family: var(--script); font-size: calc(var(--u) * 54); line-height: 1.15; color: #fff;
-  text-shadow: 0 calc(var(--u) * 3) calc(var(--u) * 5) rgb(60 15 20 / .45);
+  position: relative;
+  font-family: var(--title); font-size: calc(var(--u) * 77); line-height: 1; color: #fffaf2;
+  text-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 5) rgb(60 15 20 / .45);
 }
 .hero__names {
+  position: relative; margin-top: calc(var(--u) * -5.7);
   font: italic 500 calc(var(--u) * 24) / 1.2 var(--sans); color: var(--wine-deep);
   text-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 3) rgb(60 15 20 / .35);
 }
@@ -71,31 +85,37 @@ fieldset { border: 0; min-width: 0; }
 .block--light { background: var(--paper); }
 .block--dark { background: var(--wine); color: #fff; }
 .block--tight { padding-top: calc(var(--u) * 6); padding-bottom: calc(var(--u) * 26); }
-.block--join { padding-top: 0; }
 /* Кружевной узор под заголовком, как в макете. */
+.block--lace { padding-top: calc(var(--u) * 18); padding-bottom: calc(var(--u) * 8); }
 .block--lace::before {
-  content: ""; position: absolute; inset: 0 0 auto 0; height: calc(var(--u) * 78);
-  background: url(img/lace.png) center / calc(var(--u) * 560) auto repeat-x; opacity: .28;
+  content: ""; position: absolute; inset: 0 0 auto 0; height: calc(var(--u) * 70);
+  background: url(img/lace.png) center / calc(var(--u) * 560) auto repeat-x;
+  mix-blend-mode: multiply; opacity: .55;
 }
+.block--lace .heading { margin-bottom: calc(var(--u) * 16); }
+.block--lace.block--join { padding-bottom: calc(var(--u) * 30); }
 .block--lace > * { position: relative; }
 
 .heading {
-  font: italic 500 calc(var(--u) * 34) / 1.25 var(--sans); text-align: center; color: #fff;
+  font: italic 400 calc(var(--u) * 36) / 1.25 var(--sans); text-align: center; color: #fff;
   text-shadow: 0 calc(var(--u) * 3) calc(var(--u) * 4) rgb(30 5 8 / .55);
   margin-bottom: calc(var(--u) * 14);
 }
 .heading--dark { color: var(--wine-deep); text-shadow: 0 calc(var(--u) * 3) calc(var(--u) * 4) rgb(60 15 20 / .4); }
 .heading--small { font-size: calc(var(--u) * 24); color: var(--wine-deep); text-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 3) rgb(60 15 20 / .35); }
 .heading--band {
-  background: var(--wine); margin: 0; padding: calc(var(--u) * 8) 0;
-  font-size: calc(var(--u) * 33); white-space: nowrap;
+  background: var(--wine); margin: 0; padding: calc(var(--u) * 7.5) 0;
+  white-space: nowrap;
 }
 
 .script {
-  font-family: var(--script); font-size: calc(var(--u) * 19); line-height: 1.32;
-  text-indent: calc(var(--u) * 20);
+  font-family: var(--script); font-size: calc(var(--u) * 19.6); line-height: 1.27;
+  text-indent: calc(var(--u) * 13);
 }
+/* В макете текст идёт почти от края до края, а фотографии и анкета стоят с полями. */
+.block > .script { margin-inline: calc(var(--u) * -12); }
 .script--plain { text-indent: 0; }
+.script--deep { text-indent: calc(var(--u) * 21); }
 .script--center { text-indent: 0; text-align: center; }
 
 /* Программа дня */
@@ -105,7 +125,7 @@ fieldset { border: 0; min-width: 0; }
 .program__date { position: relative; }
 .program__date time {
   display: flex; justify-content: space-between; padding: 0 calc(var(--u) * 17);
-  font: italic 700 calc(var(--u) * 56) / 1.3 var(--sans); color: var(--wine-deep);
+  font: italic 700 calc(var(--u) * 64) / 1.2 var(--sans); color: var(--wine-deep);
   text-shadow: 0 calc(var(--u) * 4) calc(var(--u) * 5) rgb(60 15 20 / .45);
 }
 .program__list { position: relative; margin-top: calc(var(--u) * 46); display: grid; row-gap: calc(var(--u) * 46); }
@@ -118,7 +138,8 @@ fieldset { border: 0; min-width: 0; }
 .program__event span { display: block; font-size: calc(var(--u) * 19); line-height: 1.25; }
 
 /* ЗАГС и ресторан */
-.place { display: grid; grid-template-columns: 184fr 167fr; column-gap: calc(var(--u) * 18); margin-top: calc(var(--u) * 20); }
+.place { display: grid; grid-template-columns: 184fr 167fr; column-gap: calc(var(--u) * 18); margin-top: calc(var(--u) * 17); }
+.block--join .place { margin-top: calc(var(--u) * 26); }
 .place img { width: 100%; object-fit: cover; box-shadow: 0 calc(var(--u) * 3) calc(var(--u) * 8) rgb(20 0 5 / .45); }
 .place__main { aspect-ratio: 184 / 230; height: 100%; }
 .place__side img { aspect-ratio: 167 / 118; margin-bottom: calc(var(--u) * 16); }
